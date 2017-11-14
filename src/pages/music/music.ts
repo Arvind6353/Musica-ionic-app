@@ -77,13 +77,6 @@ export class MusicPage {
           }
         },
         {
-          text: "Share via Email",
-          handler: () => {
-            console.log("twitter share");
-            this.socialSharing.shareViaEmail(music.name,"",[],[],[],music.music_url)
-          }
-        },
-        {
           text: "Share",
           handler: () => {
             console.log("general share");
