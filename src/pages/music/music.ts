@@ -9,6 +9,7 @@ import {
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { MusicProvider } from "../../providers/music/music";
+import { MusicPlayerPage } from '../music-player/music-player';
 
 /**
  * Generated class for the MusicPage page.
@@ -66,14 +67,39 @@ export class MusicPage {
           text: "Share via Facebook",
           handler: () => {
             console.log("fb share");
-            this.socialSharing.shareViaFacebook(music.name, music.image, music.music_url)
+            let loading = this.loadingCtrl.create({
+              content: "Please wait. Sharing details to Facebook..."
+            });
+            loading.present();
+            this.socialSharing.shareViaFacebook(music.name, music.image, music.music_url).then(()=>{
+              loading.dismiss();
+            })
           }
         },
         {
           text: "Share via Twitter",
           handler: () => {
             console.log("twitter share");
-            this.socialSharing.shareViaTwitter(music.name, music.image, music.music_url)
+            let loading = this.loadingCtrl.create({
+              content: "Please wait. Sharing details to Twitter..."
+            });
+            loading.present();
+            this.socialSharing.shareViaTwitter(music.name, music.image, music.music_url).then(()=>{
+              loading.dismiss();
+            })
+          }
+        },
+        {
+          text: "Share via Whatsapp",
+          handler: () => {
+            console.log("whatsapp share");
+            let loading = this.loadingCtrl.create({
+              content: "Please wait. Sharing details to Whatsapp..."
+            });
+            loading.present();
+            this.socialSharing.shareViaWhatsApp(music.name, music.image, music.music_url).then(()=>{
+              loading.dismiss();
+            })
           }
         },
         {
@@ -90,5 +116,12 @@ export class MusicPage {
       ]
     });
     actionSheet.present();
+  }
+
+
+  listen(music) {
+    this.navCtrl.push(MusicPlayerPage, {
+      music : music
+    });
   }
 }
