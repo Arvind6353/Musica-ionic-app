@@ -10,6 +10,8 @@ import "rxjs/add/operator/map";
 const API: string = "https://orangevalleycaa.org/api/music";
 @Injectable()
 export class MusicProvider {
+  favorites = [];
+
   constructor(public http: Http) {
     console.log("Hello MusicProvider Provider");
   }
@@ -21,5 +23,16 @@ export class MusicProvider {
   addOneSong() {
     let oneSongUrl = API;
     return this.http.get(oneSongUrl).map(res => res.json());
+  }
+
+  addToFavorites(music) {
+    var index = this.favorites.findIndex(fav => fav.id == music.id);
+    if (index == -1) {
+      this.favorites.push(music);
+    }
+  }
+
+  getFavorites() {
+    return this.favorites;
   }
 }

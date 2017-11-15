@@ -18,6 +18,8 @@ import { MusicPage } from '../pages/music/music';
 import { MusicPageModule } from '../pages/music/music.module';
 import { MusicPlayerPageModule } from '../pages/music-player/music-player.module';
 import { MusicPlayerPage } from '../pages/music-player/music-player';
+import { FavoritesPageModule } from '../pages/favorites/favorites.module';
+import { FavoritesPage } from '../pages/favorites/favorites';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { MusicPlayerPage } from '../pages/music-player/music-player';
   ],
   imports: [
     MusicPageModule,
+    FavoritesPageModule,
     MusicPlayerPageModule,
     HttpModule,
     BrowserModule,
@@ -38,7 +41,8 @@ import { MusicPlayerPage } from '../pages/music-player/music-player';
     HomePage,
     ListPage,
     MusicPage,
-    MusicPlayerPage
+    MusicPlayerPage,
+    FavoritesPage
   ],
   providers: [
     Media,

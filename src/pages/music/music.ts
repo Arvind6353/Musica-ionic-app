@@ -59,6 +59,11 @@ export class MusicPage {
     });
   }
 
+
+
+  addToFavorites(music) {
+    this.musicProvider.addToFavorites(music);
+  }
   share(music) {
     let actionSheet = this.actionSheetCtrl.create({
       title: "Share song with others",
@@ -124,4 +129,7 @@ export class MusicPage {
       music : music
     });
   }
+
+
+
 }

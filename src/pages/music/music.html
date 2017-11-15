@@ -28,6 +28,14 @@
   </ion-refresher>
 
   <ion-card *ngFor="let music of allMusic">
+
+    <ion-card-header>
+
+     <button ion-button block (click)="addToFavorites(music)">
+      Add To Favorites
+     </button>
+
+    </ion-card-header>
     <img [src]="music.image">
     <ion-card-content>
 
@@ -43,6 +51,7 @@
           Listen
         </button>
       </ion-item>
+
 
     </ion-card-content>
 
